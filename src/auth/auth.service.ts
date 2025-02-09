@@ -150,6 +150,9 @@ export class AuthService {
         provider: authProvider,
         role,
         status,
+        weigth: 0,
+        heigth: 0,
+        birthdate: null,
       });
 
       user = await this.usersService.findById(user.id);

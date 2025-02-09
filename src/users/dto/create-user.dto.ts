@@ -10,6 +10,8 @@ import {
   IsNotEmpty,
   IsOptional,
   MinLength,
+  IsNumber,
+  IsISO8601,
 } from 'class-validator';
 import { FileDto } from '../../files/dto/file.dto';
 import { RoleDto } from '../../roles/dto/role.dto';
@@ -52,4 +54,19 @@ export class CreateUserDto {
   @IsOptional()
   @Type(() => StatusDto)
   status?: StatusDto;
+  @ApiPropertyOptional({ example: 70 })
+  @IsOptional()
+  @Type(() => Number) // transforms incoming string to number
+  @IsNumber({}, { message: 'weight must be a number' })
+  weigth: number;
+  @ApiPropertyOptional({ example: 170 })
+  @IsOptional()
+  @Type(() => Number) // transforms incoming string to number
+  @IsNumber({}, { message: 'weight must be a number' })
+  heigth: number;
+  @ApiPropertyOptional({ example: '1990-01-01' })
+  @IsOptional()
+  @Type(() => Date)
+  @IsISO8601({}, { message: 'birthdate must be a valid date' })
+  birthdate: Date | null;
 }

@@ -125,6 +125,9 @@ export class UsersService {
       status: status,
       provider: createUserDto.provider ?? AuthProvidersEnum.email,
       socialId: createUserDto.socialId,
+      height: createUserDto.heigth,
+      weigth: createUserDto.weigth,
+      birthdate: createUserDto.birthdate,
     });
   }
 
